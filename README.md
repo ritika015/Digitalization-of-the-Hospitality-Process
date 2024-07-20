@@ -142,6 +142,6 @@ project
   ```
 
 ## Repository Link
-[Digitalization of the Hospitality Process](https://github.com/Satyacoddy/Digitalization-of-the-Hospitality-Process.git)
+[Digitalization of the Hospitality Process](https://github.com/ritika015/Digitalization-of-the-Hospitality-Process/tree/main)
 
 ---
