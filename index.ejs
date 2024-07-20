@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Accommodation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Upload CSV Files</h1>
+        <% if (typeof msg !== 'undefined') { %>
+            <div class="alert alert-info"><%= msg %></div>
+        <% } %>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="csv1">CSV File 1 (Group Information):</label>
+                <input type="file" class="form-control-file" id="csv1" name="csv1">
+            </div>
+            <div class="form-group">
+                <label for="csv2">CSV File 2 (Hostel Information):</label>
+                <input type="file" class="form-control-file" id="csv2" name="csv2">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <% if (typeof allocation !== 'undefined') { %>
+            <h2 class="mt-4">Allocation Results</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Group ID</th>
+                        <th>Hostel Name</th>
+                        <th>Room Number</th>
+                        <th>Members Allocated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% allocation.forEach(row => { %>
+                        <tr>
+                            <td><%= row.GroupID %></td>
+                            <td><%= row.HostelName %></td>
+                            <td><%= row.RoomNumber %></td>
+                            <td><%= row.MembersAllocated %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>
+
